@@ -1,0 +1,15 @@
+# Data dictionary
+
+| Column | Description | Unit | Source |
+|---|---|---| 
+| rainfall_mm | Daily total precipitation | mm | Open-Meteo precipitation_sum |
+| temp_max_c / temp_min_c | Daily maximum / minimum air temperature at 2 m | deg C | Open-Meteo |
+| wind_speed | Daily maximum wind speed at 10 m | km/h (API default) | Open-Meteo |
+| evapotranspiration | Reference evapotranspiration (FAO-56) | mm | Open-Meteo et0_fao_evapotranspiration |
+| runoff_mm | Estimated surface runoff using NRCS Curve Number CN=75 | mm | Derived from rainfall |
+| temp_mean | Mean of daily maximum and minimum temperature | deg C | Derived |
+| rainfall_7d / rainfall_14d / rainfall_30d | Rolling rainfall sums over 7, 14 and 30 days | mm | Derived from rainfall_mm |
+| runoff_7d | Seven-day mean runoff | mm | Derived from runoff_mm |
+| doy_sin / doy_cos | Day-of-year seasonality encoded with sine and cosine | unitless | Derived from date |
+| river_discharge (optional) | Simulated river discharge when optional GloFAS source is used | m3/s | Open-Meteo Flood API |
+| flood (target) | 1 = next-day flood-risk label, 0 = normal; based on top 5% of training-period runoff by default | 0/1 | Derived label |
